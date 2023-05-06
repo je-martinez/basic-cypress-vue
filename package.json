@@ -11,7 +11,8 @@
     "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'",
     "test:unit": "cypress run --component",
     "test:unit:dev": "cypress open --component",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "instrument": "npx nyc instrument --compact=false src instrumented"
   },
   "dependencies": {
     "istanbul-lib-coverage": "^3.2.0",
@@ -25,7 +26,8 @@
     "cypress": "^12.11.0",
     "nyc": "^15.1.0",
     "start-server-and-test": "^2.0.0",
-    "vite": "^4.3.4"
+    "vite": "^4.3.4",
+    "vite-plugin-istanbul": "^4.0.1"
   },
   "nyc": {
     "extension": [
