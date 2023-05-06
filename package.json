@@ -3,21 +3,43 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "test": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text mocha test/*.js",
     "dev": "npx vite",
     "build": "npx vite build",
     "preview": "npx vite preview",
     "test:e2e": "npx start-server-and-test preview http://localhost:4173 'cypress run --e2e'",
     "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'",
     "test:unit": "cypress run --component",
-    "test:unit:dev": "cypress open --component"
+    "test:unit:dev": "cypress open --component",
+    "cy:open": "cypress open"
   },
   "dependencies": {
+    "istanbul-lib-coverage": "^3.2.0",
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.10.4",
     "@vitejs/plugin-vue": "^4.2.1",
+    "babel-plugin-istanbul": "^6.1.1",
+    "cross-env": "^7.0.3",
     "cypress": "^12.11.0",
+    "nyc": "^15.1.0",
     "start-server-and-test": "^2.0.0",
     "vite": "^4.3.4"
+  },
+  "nyc": {
+    "extension": [
+      ".vue"
+    ],
+    "include": [
+      "src/**/*.vue"
+    ],
+    "exclude": [
+      "cypress/",
+      "assets/",
+      "test/"
+    ],
+    "all": true,
+    "instrument": true
   }
 }
