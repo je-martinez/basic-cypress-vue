@@ -1,0 +1,23 @@
+{
+  "name": "basic-cypress-vue",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx vite",
+    "build": "npx vite build",
+    "preview": "npx vite preview",
+    "test:e2e": "npx start-server-and-test preview http://localhost:4173 'cypress run --e2e'",
+    "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'",
+    "test:unit": "cypress run --component",
+    "test:unit:dev": "cypress open --component"
+  },
+  "dependencies": {
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.1",
+    "cypress": "^12.11.0",
+    "start-server-and-test": "^2.0.0",
+    "vite": "^4.3.4"
+  }
+}
